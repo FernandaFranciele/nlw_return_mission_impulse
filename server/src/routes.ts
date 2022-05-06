@@ -11,8 +11,7 @@ routes.post('/feedbacks', async (req, res) => {
 
    try {       
        const prismaFeedbacksRepository = new PrismaFeedbacksRepository();
-       const nodemailerMailAdapter = new NodemailerMailAdapter();
-    
+       const nodemailerMailAdapter = new NodemailerMailAdapter();    
     
        const submitFeedbackUseCase = new SubmitFeedbackUseCase(
            prismaFeedbacksRepository,
@@ -25,11 +24,11 @@ routes.post('/feedbacks', async (req, res) => {
             screenshot
         });    
     
-        return res.status(201).send()
+        return res.status(201).send();
    } catch (error) {
        console.error(error);
-       return res.status(500).send();
-       
+
+       return res.status(500).send();       
    }
 
 })
